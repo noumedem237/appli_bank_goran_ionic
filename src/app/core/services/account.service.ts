@@ -19,6 +19,14 @@ export class AccountService {
     return this.http.get<User>(`${environment.apiUrl}/user`);
   }
 
+  credit(amount: number): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/account/credit`, { amount });
+  }
+
+  debit(amount: number): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/account/debit`, { amount });
+  }
+
   logout(): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/logout`).pipe(
       switchMap((response) =>

@@ -1,0 +1,30 @@
+.account-container {
+  max-width: 520px;
+  margin: 24px auto;
+}
+
+ion-spinner {
+  display: block;
+  margin: 36px auto;
+}
+
+ion-card {
+  margin: 0 0 24px;
+}
+
+ion-item {
+  --background: var(--ion-color-light);
+  --border-radius: 10px;
+}
+
+ion-note {
+  display: block;
+  margin: 4px 16px 0;
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}

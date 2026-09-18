@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mon compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="account-container">
+    <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+
+    <ion-card *ngIf="user">
+      <ion-card-header>
+        <ion-card-subtitle>Solde disponible</ion-card-subtitle>
+        <ion-card-title>{{ user.balance ?? 0 }} {{ user.currency }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <form [formGroup]="form" novalidate>
+      <ion-item>
+        <ion-input
+          label="Montant"
+          labelPlacement="stacked"
+          type="number"
+          inputmode="decimal"
+          min="0.01"
+          placeholder="0,00"
+          formControlName="amount">
+        </ion-input>
+      </ion-item>
+      <ion-note color="danger" *ngIf="form.controls.amount.touched && form.controls.amount.hasError('required')">Le montant est obligatoire.</ion-note>
+      <ion-note color="danger" *ngIf="form.controls.amount.touched && form.controls.amount.hasError('min')">Le montant doit être supérieur à 0.</ion-note>
+
+      <div class="actions">
+        <ion-button type="button" expand="block" [disabled]="isSubmitting" (click)="credit()">
+          Créditer
+        </ion-button>
+        <ion-button type="button" expand="block" color="secondary" [disabled]="isSubmitting" (click)="debit()">
+          Débiter
+        </ion-button>
+      </div>
+    </form>
+  </div>
+
+  <ion-toast
+    [isOpen]="showToast"
+    [message]="toastMessage"
+    [color]="toastColor"
+    duration="2800"
+    position="top"
+    (didDismiss)="dismissToast()">
+  </ion-toast>
+</ion-content>
