@@ -1,22 +1,21 @@
-.home-container {
-  max-width: 520px;
-  margin: 24px auto;
-}
-
-ion-spinner {
-  display: block;
-  margin: 48px auto;
-}
-
-ion-card {
-  margin: 0 0 24px;
-}
-
-.account-button {
-  margin-bottom: 12px;
-}
-
-.error-message {
-  margin: 0 0 16px;
-  text-align: center;
-}
+.home-container { max-width: 520px; margin: 8px auto 28px; }
+ion-spinner { display: block; margin: 48px auto; }
+.app-toolbar { --background: #123a6d; --color: #fff; --border-width: 0; }
+.logout-button { --color: #fff; font-size: .78rem; text-transform: none; }
+.welcome-section { padding: 24px 4px 18px; }
+.welcome-section h1 { margin: 4px 0 8px; color: #11284a; font-size: 1.7rem; font-weight: 750; }
+.welcome-section > p:last-child { margin: 0; color: #64748b; line-height: 1.5; }
+.eyebrow { margin: 0; color: #0b8f7b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+.profile-card, .quick-action-card { margin: 0 0 16px; border: 1px solid #e5eaf2; border-radius: 18px; box-shadow: 0 8px 20px rgb(20 49 88 / 7%); }
+.profile-card { --background: #fff; }
+.profile-card ion-card-title { color: #123a6d; font-size: 1.05rem; }
+.profile-list ion-item { --background: transparent; --padding-start: 0; }
+.label { margin-bottom: 3px; color: #64748b; font-size: .78rem; }
+.profile-list h3 { margin: 0; color: #102a4c; font-size: 1rem; font-weight: 700; }
+.quick-action-card { --background: linear-gradient(135deg, #123a6d, #1f5592); color: #fff; }
+.quick-action-card h2 { margin: 8px 0; font-size: 1.3rem; }
+.quick-action-card p:not(.eyebrow) { margin: 0 0 18px; color: rgb(255 255 255 / 82%); line-height: 1.45; }
+.quick-action-card .eyebrow { color: #96e0d2; }
+.account-button { --background: #fff; --color: #123a6d; --border-radius: 12px; font-weight: 700; }
+.error-message { margin: 16px 0; text-align: center; }
+.logout-footer { margin-top: 4px; font-size: .85rem; text-transform: none; }

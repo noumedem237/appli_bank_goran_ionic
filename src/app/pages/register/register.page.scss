@@ -1,7 +1,12 @@
 .register-container {
   max-width: 480px;
-  margin: 24px auto;
+  margin: 36px auto;
 }
+
+.auth-toolbar { --background: #123a6d; --color: #fff; --border-width: 0; }
+.auth-hero { margin-bottom: 28px; }
+.auth-hero h1 { margin: 5px 0 8px; color: #11284a; font-size: 1.8rem; font-weight: 750; }
+.eyebrow { margin: 0; color: #0b8f7b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
 
 .intro {
   color: var(--ion-color-medium);
@@ -10,8 +15,9 @@
 }
 
 ion-item {
-  --background: var(--ion-color-light);
+  --background: #fff;
   --border-radius: 10px;
+  --border-color: #e5eaf2;
   margin-top: 14px;
 }
 
@@ -28,4 +34,7 @@ ion-note {
 
 .submit-button {
   margin-top: 28px;
+  --border-radius: 12px;
+  min-height: 48px;
+  font-weight: 700;
 }

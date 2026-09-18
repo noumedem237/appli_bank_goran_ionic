@@ -1,12 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Connexion</ion-title>
+  <ion-toolbar class="auth-toolbar">
+    <ion-title>Ma banque</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="login-container">
-    <p class="intro">Connectez-vous pour accéder à votre espace bancaire.</p>
+    <div class="auth-hero">
+      <p class="eyebrow">ESPACE SÉCURISÉ</p>
+      <h1>Bienvenue</h1>
+      <p class="intro">Connectez-vous pour accéder à votre espace bancaire.</p>
+    </div>
 
     <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <ion-list lines="none">
@@ -22,7 +26,8 @@
         <ion-note color="danger" *ngIf="form.controls.password.touched && form.controls.password.hasError('required')">Le mot de passe est obligatoire.</ion-note>
       </ion-list>
 
-      <ion-button type="submit" expand="block" [disabled]="isSubmitting" class="submit-button">
+      <ion-button type="submit" expand="block" [disabled]="form.invalid || isSubmitting" class="submit-button">
+        <ion-spinner *ngIf="isSubmitting" name="crescent" slot="start"></ion-spinner>
         {{ isSubmitting ? 'Connexion en cours…' : 'Se connecter' }}
       </ion-button>
     </form>

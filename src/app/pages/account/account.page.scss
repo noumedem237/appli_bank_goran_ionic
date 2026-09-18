@@ -1,6 +1,6 @@
 .account-container {
   max-width: 520px;
-  margin: 24px auto;
+  margin: 8px auto 28px;
 }
 
 ion-spinner {
@@ -8,12 +8,24 @@ ion-spinner {
   margin: 36px auto;
 }
 
+.account-toolbar { --background: #123a6d; --color: #fff; --border-width: 0; }
+.account-toolbar ion-back-button { --color: #fff; }
+.account-intro { padding: 24px 4px 16px; }
+.account-intro h1 { margin: 5px 0 0; color: #11284a; font-size: 1.55rem; font-weight: 750; }
+.eyebrow { margin: 0; color: #0b8f7b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+.balance-card { --background: linear-gradient(135deg, #123a6d, #1f5592); margin: 0 0 20px; border-radius: 18px; color: #fff; box-shadow: 0 10px 24px rgb(18 58 109 / 20%); }
+.balance-card ion-card-subtitle { color: #b9d3f2; }
+.balance-card ion-card-title { color: #fff; font-size: 2rem; font-weight: 750; }
+.operation-form { padding: 20px; border: 1px solid #e5eaf2; border-radius: 18px; background: #fff; box-shadow: 0 8px 20px rgb(20 49 88 / 6%); }
+.form-title { margin: 0; color: #11284a; font-size: 1.1rem; font-weight: 750; }
+.form-help { margin: 5px 0 16px; color: #64748b; font-size: .88rem; }
+
 ion-card {
   margin: 0 0 24px;
 }
 
 ion-item {
-  --background: var(--ion-color-light);
+  --background: #f6f8fc;
   --border-radius: 10px;
 }
 
@@ -28,3 +40,5 @@ ion-note {
   gap: 12px;
   margin-top: 28px;
 }
+
+.actions ion-button { --border-radius: 12px; min-height: 48px; font-weight: 700; }

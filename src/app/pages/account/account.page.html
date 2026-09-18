@@ -1,6 +1,9 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Mon compte</ion-title>
+  <ion-toolbar class="account-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Accueil"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Opérations</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,14 +11,21 @@
   <div class="account-container">
     <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
-    <ion-card *ngIf="user">
+    <section class="account-intro" *ngIf="user">
+      <p class="eyebrow">COMPTE PRINCIPAL</p>
+      <h1>Gérez votre solde</h1>
+    </section>
+
+    <ion-card *ngIf="user" class="balance-card">
       <ion-card-header>
         <ion-card-subtitle>Solde disponible</ion-card-subtitle>
         <ion-card-title>{{ user.balance ?? 0 }} {{ user.currency }}</ion-card-title>
       </ion-card-header>
     </ion-card>
 
-    <form [formGroup]="form" novalidate>
+    <form [formGroup]="form" novalidate class="operation-form">
+      <p class="form-title">Nouvelle opération</p>
+      <p class="form-help">Indiquez le montant à créditer ou à débiter.</p>
       <ion-item>
         <ion-input
           label="Montant"
@@ -31,10 +41,12 @@
       <ion-note color="danger" *ngIf="form.controls.amount.touched && form.controls.amount.hasError('min')">Le montant doit être supérieur à 0.</ion-note>
 
       <div class="actions">
-        <ion-button type="button" expand="block" [disabled]="isSubmitting" (click)="credit()">
+        <ion-button type="button" expand="block" [disabled]="form.invalid || isSubmitting" (click)="credit()">
+          <ion-spinner *ngIf="isSubmitting" name="crescent" slot="start"></ion-spinner>
           Créditer
         </ion-button>
-        <ion-button type="button" expand="block" color="secondary" [disabled]="isSubmitting" (click)="debit()">
+        <ion-button type="button" expand="block" color="secondary" [disabled]="form.invalid || isSubmitting" (click)="debit()">
+          <ion-spinner *ngIf="isSubmitting" name="crescent" slot="start"></ion-spinner>
           Débiter
         </ion-button>
       </div>

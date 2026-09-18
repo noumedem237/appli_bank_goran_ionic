@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://recruitment.africremit.ca/api',
+  apiUrl: 'https://recru...........a/api',
 };
 
 /*

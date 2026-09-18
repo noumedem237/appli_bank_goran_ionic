@@ -1,12 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Créer un compte</ion-title>
+  <ion-toolbar class="auth-toolbar">
+    <ion-title>Ma banque</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="register-container">
-    <p class="intro">Ouvrez votre compte et commencez à gérer vos transferts.</p>
+    <div class="auth-hero">
+      <p class="eyebrow">NOUVEAU CLIENT</p>
+      <h1>Créer votre compte</h1>
+      <p class="intro">Ouvrez votre compte et commencez à gérer vos transferts.</p>
+    </div>
 
     <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <ion-list lines="none">
@@ -41,7 +45,8 @@
 
       <ion-text color="danger" *ngIf="formError"><p class="form-error">{{ formError }}</p></ion-text>
 
-      <ion-button type="submit" expand="block" [disabled]="isSubmitting" class="submit-button">
+      <ion-button type="submit" expand="block" [disabled]="form.invalid || isSubmitting" class="submit-button">
+        <ion-spinner *ngIf="isSubmitting" name="crescent" slot="start"></ion-spinner>
         {{ isSubmitting ? 'Création en cours…' : 'Créer mon compte' }}
       </ion-button>
     </form>

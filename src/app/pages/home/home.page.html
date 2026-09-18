@@ -1,10 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Accueil</ion-title>
+  <ion-toolbar class="app-toolbar">
+    <ion-title>Ma banque</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="logout-button" [disabled]="isLoggingOut" (click)="logout()">
+        <ion-spinner *ngIf="isLoggingOut" name="crescent" slot="start"></ion-spinner>
+        {{ isLoggingOut ? 'Patientez' : 'Déconnexion' }}
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding home-content">
   <div class="home-container">
     <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
@@ -12,34 +18,43 @@
       <p class="error-message">{{ errorMessage }}</p>
     </ion-text>
 
-    <ion-card *ngIf="user">
+    <section *ngIf="user" class="welcome-section">
+      <p class="eyebrow">VOTRE ESPACE SÉCURISÉ</p>
+      <h1>Bonjour, {{ user.name }}</h1>
+      <p>Gardez le contrôle de vos opérations en toute simplicité.</p>
+    </section>
+
+    <ion-card *ngIf="user" class="profile-card">
       <ion-card-header>
-        <ion-card-title>Bonjour, {{ user.name }}</ion-card-title>
-        <ion-card-subtitle>Vos informations personnelles</ion-card-subtitle>
+        <ion-card-subtitle>Profil client</ion-card-subtitle>
+        <ion-card-title>{{ user.email }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-list lines="none">
+        <ion-list lines="none" class="profile-list">
           <ion-item>
             <ion-label>
-              <h3>E-mail</h3>
-              <p>{{ user.email }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>
-              <h3>Devise</h3>
-              <p>{{ user.currency }}</p>
+              <p class="label">Devise du compte</p>
+              <h3>{{ user.currency }}</h3>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-card-content>
     </ion-card>
 
-    <ion-button expand="block" routerLink="/account" class="account-button">
-      Créditer ou débiter
-    </ion-button>
-    <ion-button expand="block" fill="outline" color="medium" [disabled]="isLoggingOut" (click)="logout()">
-      {{ isLoggingOut ? 'Déconnexion…' : 'Déconnexion' }}
+    <ion-card *ngIf="user" class="quick-action-card">
+      <ion-card-content>
+        <p class="eyebrow">OPÉRATIONS</p>
+        <h2>Gérer votre compte</h2>
+        <p>Créditez ou débitez votre compte en quelques instants.</p>
+        <ion-button expand="block" routerLink="/account" class="account-button">
+          Accéder aux opérations
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" fill="clear" color="medium" [disabled]="isLoggingOut" (click)="logout()" class="logout-footer">
+      <ion-spinner *ngIf="isLoggingOut" name="crescent" slot="start"></ion-spinner>
+      Se déconnecter
     </ion-button>
   </div>
 </ion-content>
