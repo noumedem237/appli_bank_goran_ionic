@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <p class="intro">Connectez-vous pour accéder à votre espace bancaire.</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-input label="E-mail" labelPlacement="stacked" type="email" formControlName="email" autocomplete="email"></ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="form.controls.email.touched && form.controls.email.hasError('required')">L’e-mail est obligatoire.</ion-note>
+        <ion-note color="danger" *ngIf="form.controls.email.touched && form.controls.email.hasError('email')">Saisissez une adresse e-mail valide.</ion-note>
+
+        <ion-item>
+          <ion-input label="Mot de passe" labelPlacement="stacked" type="password" formControlName="password" autocomplete="current-password"></ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="form.controls.password.touched && form.controls.password.hasError('required')">Le mot de passe est obligatoire.</ion-note>
+      </ion-list>
+
+      <ion-button type="submit" expand="block" [disabled]="isSubmitting" class="submit-button">
+        {{ isSubmitting ? 'Connexion en cours…' : 'Se connecter' }}
+      </ion-button>
+    </form>
+
+    <p class="register-link">Pas encore de compte ? <a routerLink="/register">S’inscrire</a></p>
+  </div>
+
+  <ion-toast
+    [isOpen]="showInvalidCredentialsToast"
+    message="Email ou mot de passe incorrect"
+    duration="2500"
+    color="danger"
+    position="top"
+    (didDismiss)="showInvalidCredentialsToast = false">
+  </ion-toast>
+</ion-content>

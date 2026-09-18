@@ -1,0 +1,38 @@
+.login-container {
+  max-width: 480px;
+  margin: 48px auto;
+}
+
+.intro {
+  color: var(--ion-color-medium);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+ion-item {
+  --background: var(--ion-color-light);
+  --border-radius: 10px;
+  margin-top: 14px;
+}
+
+ion-note {
+  display: block;
+  margin: 4px 16px 0;
+  font-size: 0.8rem;
+}
+
+.submit-button {
+  margin-top: 28px;
+}
+
+.register-link {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--ion-color-medium);
+}
+
+a {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}

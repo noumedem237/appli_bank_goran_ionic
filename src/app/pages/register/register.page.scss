@@ -1,0 +1,31 @@
+.register-container {
+  max-width: 480px;
+  margin: 24px auto;
+}
+
+.intro {
+  color: var(--ion-color-medium);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+ion-item {
+  --background: var(--ion-color-light);
+  --border-radius: 10px;
+  margin-top: 14px;
+}
+
+ion-note {
+  display: block;
+  margin: 4px 16px 0;
+  font-size: 0.8rem;
+}
+
+.form-error {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.submit-button {
+  margin-top: 28px;
+}
